@@ -1,11 +1,21 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
-import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine().trim());
-        System.out.println(st.countTokens());
+        int count = 0;
+        int pre_str = 32;
+        int str;
+
+        while(true) {
+            str = System.in.read();
+
+            if(str == 32) {
+                if(pre_str != 32) count++;
+            } else if(str == 10) {
+                if(pre_str != 32) count++;
+                break;
+            }
+            pre_str = str;
+        }
+        System.out.println(count);
     }
 }
