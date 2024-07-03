@@ -1,0 +1,14 @@
+# ANIMAL_INS 테이블을 이용하여
+# 동물 보호소에 가장 먼저 들어온 동물의 이름 조회
+
+#DATETIME이 가장 빠른 1개 조회
+
+#SELECT * FROM "TABLE NAME" ORDER BY "COLUMN NAME" DESC LIMIT 1
+
+SELECT lc.NAME
+FROM (
+SELECT *
+FROM ANIMAL_INS
+ORDER BY DATETIME
+LIMIT 1
+) AS lc;
