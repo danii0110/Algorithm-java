@@ -1,0 +1,7 @@
+# ROOT 아이템을 찾아
+# ITEM_ID, ITEM_NAME 출력
+# 아이템 ID를 기준으로 오름차순 정렬
+SELECT ii.ITEM_ID, ii.ITEM_NAME
+FROM ITEM_INFO ii, ITEM_TREE it
+WHERE it.PARENT_ITEM_ID IS NULL AND ii.ITEM_ID = it.ITEM_ID
+ORDER BY ii.ITEM_ID;
