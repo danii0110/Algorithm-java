@@ -1,0 +1,6 @@
+# USER_INFO 테이블에서
+# 나이 정보가 없는 회원 수 출력
+# 컬럼명: USERS
+SELECT COUNT(USER_ID) AS USERS
+FROM USER_INFO
+WHERE AGE IS NULL;
