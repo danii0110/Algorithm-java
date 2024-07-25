@@ -8,4 +8,4 @@ for _ in range(t):
     r, s = map(str, input().split())
     for char in s:
       p.append(char * int(r))
-    print(*p, sep = '')
+    print(''.join(p))
