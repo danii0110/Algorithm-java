@@ -1,7 +1,8 @@
 s = input()
 alphabets = list('abcdefghijklmnopqrstuvwxyz')
 res = [-1] * 26
-for i in alphabets:
+
+for j, i in enumerate(alphabets):
     if i in s:
-        res[ord(i) - ord('a')] = s.find(i)
+        res[j] = s.find(i)
 print(' '.join(map(str, res)))
