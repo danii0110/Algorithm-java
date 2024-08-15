@@ -1,14 +1,13 @@
 class Solution {
-    public static String solution (String str1, String str2) {
-        String ans = "";
-        
-        int n = (str1.length() > str2.length() ? str1.length() : str2.length());
-        
-        for(int i = 0; i < n; i++) {
-            ans += str1.charAt(i);
-            ans += str2.charAt(i);
+    public String solution(String str1, String str2) {
+        char[] chars1 = str1.toCharArray();
+        char[] chars2 = str2.toCharArray();
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i< chars1.length; i++) {
+            sb.append(chars1[i]).append(chars2[i]);
         }
-        
-        return ans;
+
+        return sb.toString();
     }
 }
