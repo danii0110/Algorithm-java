@@ -3,20 +3,20 @@ import java.util.Scanner;
 public class Solution {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        String output = "";
-        int temp;
+        String a = sc.next();
+        char b;
+        String ans = "";
         
-        for(int i = 0; i < str.length(); i++) {
-            temp = (int)str.charAt(i);
-            if((65 <= temp) && (temp <= 90)) {
-                output += (char)(temp + 32);
-            } else if((97 <= temp) && (temp <= 122)) {
-                output += (char)(temp - 32);
-            } else {
-                output += (char)temp;
+        for(int i = 0; i < a.length(); i++) {
+            b = a.charAt(i);
+            
+            if (Character.isUpperCase(b)) {
+                 ans += Character.toLowerCase(b);
+            } else if (Character.isLowerCase(b)) {
+                ans += Character.toUpperCase(b);
             }
         }
-        System.out.println(output);
+        
+        System.out.print(ans);
     }
 }
