@@ -1,11 +1,8 @@
-import java.util.Scanner;
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        String name = sc.nextLine();
-        
-        System.out.println(name + "??!");
-        
+import java.io.*;
+class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String str = br.readLine();
+        System.out.print(str + "??!");
     }
 }
