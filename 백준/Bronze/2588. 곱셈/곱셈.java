@@ -1,18 +1,17 @@
-import java.util.Scanner;
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int x = sc.nextInt();
-        int y = sc.nextInt();
-        sc.nextLine();
+import java.io.*;
+class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a = Integer.parseInt(br.readLine());
+        int b = Integer.parseInt(br.readLine());
         
-        int a = x * (y%10);
-        int b = x * (((y-y%10)%100)/10); 
-        int c = x * (y/100);
-        int total = a + b * 10 + c * 100;
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-        System.out.println(total);
+        int x = a * (b % 10);
+        int y = a * (b / 10 % 10);
+        int z = a * (b / 100);
+        
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println(z);
+        System.out.println(a * b);
     }
 }
