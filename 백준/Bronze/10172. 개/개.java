@@ -1,9 +1,8 @@
 class Main {
     public static void main(String[] args) {
-        System.out.println("|\\_/|");
-        System.out.println("|q p|   /}");
-        System.out.println("( 0 )\"\"\"\\");
-        System.out.println("|\"^\"`    |");
-        System.out.println("||_/=\\\\__|");
+        StringBuffer sb = new StringBuffer();
+		sb.append("|\\_/|\n").append("|q p|   /}\n").append("( 0 )\"\"\"\\\n").append("|\"^\"`    |\n").append("||_/=\\\\__|\n"); 
+		
+		System.out.print(sb);
     }
 }
