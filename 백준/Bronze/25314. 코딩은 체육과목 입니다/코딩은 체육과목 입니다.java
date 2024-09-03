@@ -5,10 +5,10 @@ class Main {
         StringBuilder sb = new StringBuilder();
         
         int N = Integer.parseInt(br.readLine());
-        for (int i = 0; i < (N / 4); i++) {
-            sb.append("long ");
-        }
+        
+        sb.append("long ".repeat(N / 4));
         sb.append("int");
+        
         System.out.print(sb);
     }
 }
