@@ -1,22 +1,19 @@
-import java.util.Scanner;
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int A = sc.nextInt();
-        int B = sc.nextInt();
-        sc.nextLine();
-        int C = sc.nextInt();
-        sc.close();
-        
+import java.io.*;
+import java.util.StringTokenizer;
+class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int A = Integer.parseInt(st.nextToken());
+        int B = Integer.parseInt(st.nextToken());
+        int C = Integer.parseInt(br.readLine());
+
         B += C;
-        if (B >= 60) {
-            int temp = B / 60;
-            B = B % 60;
-            A += temp;
-        }
-        if (A > 23) {
-            A -= 24;
-        }
-        System.out.println(A + " " + B);
+        A += B / 60;
+        B = B % 60;
+        A %= 24;
+
+        System.out.printf("%d %d", A, B);
     }
 }
