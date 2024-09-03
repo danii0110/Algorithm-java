@@ -1,46 +1,24 @@
-import java.util.Scanner;
- 
-public class Main {
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
- 
-		int a, b, c;
-		a = in.nextInt();
-		b = in.nextInt();
-		c = in.nextInt();
- 
-		if (a != b && b != c && a != c) {
-			int max;
-			if (a > b) {
-				if (c > a) {
-					max = c;
-				} 
-				else {
-					max = a;
-				}
-			}
-			else {
-				if (c > b) {
-					max = c;
-				}
-				else {
-					max = b;
-				}
-			}
-			System.out.println(max * 100);
-		}
-		else {
-			if (a == b && a == c) {
-				System.out.println(10000 + a * 1000);
-			}
-			else {
-				if(a == b || a == c) {
-					System.out.println(1000 + a * 100);
-				}
-				else {
-					System.out.println(1000 + b * 100);
-				}
-			}
-		}
-	}
+import java.io.*;
+import java.util.StringTokenizer;
+class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int res;
+        
+        int x = Integer.parseInt(st.nextToken());
+        int y = Integer.parseInt(st.nextToken());
+        int z = Integer.parseInt(st.nextToken());
+        
+        if (x == y && y == z) res = 10000 + x * 1000;
+        else if (x == y || y == z || z == x) {
+            if (x == y) res = 1000 + x * 100;
+            else res = 1000 + z * 100;
+        } else {
+            if (x > y && x > z) res = x * 100;
+            else if (y > x && y > z) res = y * 100;
+            else res = z * 100;
+        }
+        System.out.print(res);
+    }
 }
