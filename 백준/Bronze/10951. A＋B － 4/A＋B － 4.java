@@ -14,8 +14,7 @@ class Main {
             int B = Integer.parseInt(st.nextToken());
             
             sb.append(A + B).append("\n");
-            System.out.print(sb);
-            sb.setLength(0);
         }
+        System.out.print(sb);
     }
 }
