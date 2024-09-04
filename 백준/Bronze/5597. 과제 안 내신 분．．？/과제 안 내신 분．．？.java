@@ -1,24 +1,25 @@
 import java.io.*;
-
-public class Main {
-
-	public static void main(String[] args) throws IOException{
-
+import java.util.*;
+class Main {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-     
-        int[] array = new int[30];
+        StringBuilder sb = new StringBuilder();
+        String[] arr = new String[30];
         
-        for(int i = 0; i < 28; i++) {
-        	int n = Integer.parseInt(br.readLine());
-        	array[n-1] = 1;
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = Integer.toString(i + 1);
         }
         
-        for(int j = 0; j < array.length; j++) {
-        	if(array[j] != 1)
-        		System.out.println(j+1);
+        List<String> list = new ArrayList<String>();
+        list.addAll(Arrays.asList(arr));
+        for (int i = 0; i < 28; i++) {
+            String temp = br.readLine();
+            list.remove(temp);
         }
-
-        br.close();
-  
+        
+        for (String str : list) {
+            sb.append(str).append(" ");
+        }
+        System.out.print(sb);
     }
 }
