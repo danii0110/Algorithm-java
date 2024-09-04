@@ -1,21 +1,17 @@
 import java.io.*;
-import java.util.Arrays;
-public class Main {
+class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        int[] arr = new int[9];
         int max = 0;
-        int maxIndex = 0;
-
-        for(int i = 0; i < arr.length; i++) {
-            arr[i] = Integer.parseInt(br.readLine());
-            if (arr[i] > max) {
-                max=arr[i];
-                maxIndex = i;
+        int idx = 0;
+        
+        for (int i = 1; i <= 9; i++) {
+            int temp = Integer.parseInt(br.readLine());
+            if (max < temp) {
+                max = temp;
+                idx = i;
             }
         }
-        System.out.println(max);
-        System.out.println((maxIndex + 1));
+        System.out.printf("%d\n%d", max, idx);
     }
 }
