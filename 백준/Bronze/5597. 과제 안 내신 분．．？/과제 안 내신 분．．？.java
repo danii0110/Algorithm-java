@@ -3,23 +3,31 @@ import java.util.*;
 class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
-        String[] arr = new String[30];
+        int[] arr = new int[28];
+        int first;
+        int second;
         
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = Integer.toString(i + 1);
-        }
-        
-        List<String> list = new ArrayList<String>();
-        list.addAll(Arrays.asList(arr));
         for (int i = 0; i < 28; i++) {
-            String temp = br.readLine();
-            list.remove(temp);
+            arr[i] = Integer.parseInt(br.readLine());
+        }
+        Arrays.sort(arr);
+        
+        int count = 0;
+        for (int i = 0; i < 28; i++) {
+            if (count == 0) {
+                if (arr[i] != i + 1) {
+                    count++;
+                    System.out.println(i + 1);
+                }
+            } else if (count == 1) {
+                if (arr[i] != i + 2) {
+                    count++;
+                    System.out.println(i + 2);
+                }
+            }
         }
         
-        for (String str : list) {
-            sb.append(str).append(" ");
-        }
-        System.out.print(sb);
+        if (count == 0) System.out.print("29\n30");
+        else if (count == 1) System.out.print("30");
     }
 }
