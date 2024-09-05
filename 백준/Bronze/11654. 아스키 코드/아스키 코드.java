@@ -1,10 +1,6 @@
-import java.io.*;
+import java.io.IOException;
 class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        char c = br.readLine().charAt(0);
-        int num = c;
-        
-        System.out.print(num);
+        System.out.print(System.in.read());
     }
 }
