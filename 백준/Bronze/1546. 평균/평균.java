@@ -1,24 +1,24 @@
-import java.util.*;
 import java.io.*;
-public class Main {
+import java.util.StringTokenizer;
+class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        //과목의 개수(N) 입력받기
+        StringTokenizer st;
+        double max = 0;
+        double total = 0;
         int N = Integer.parseInt(br.readLine());
 
-        int max = 0;
-        double total = 0;
-
-        //성적 입력받기
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        for(int i = 0; i < N; i++) {
-            int val = Integer.parseInt(st.nextToken());
-
-            if(val > max) max = val;
-            total += val;
+        double[] arr = new double[N];
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < N; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
+            if (arr[i] > max) max = arr[i];
         }
 
-        System.out.println((total / max * 100 / N));
+        for (int i = 0; i < N; i++) {
+            arr[i] = arr[i] / max * 100;
+            total += arr[i];
+        }
+        System.out.print(total / N);
     }
 }
