@@ -13,9 +13,8 @@ class Main {
             String S = st.nextToken();
             
             for (int j = 0; j < S.length(); j++) {
-                char c = S.charAt(j);
                 for (int k = 0; k < R; k++) {
-                    sb.append(c);
+                    sb.append(S.charAt(j));
                 }
             }
             sb.append("\n");
