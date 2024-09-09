@@ -1,36 +1,37 @@
 import java.io.*;
 import java.util.StringTokenizer;
-
-public class Main {
+class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader bfr = new BufferedReader(new InputStreamReader(System.in));
-
-        String str[] = new String[20];
-        double totalSum = 0;
-        double scoreSum = 0;
-        String gradeList[] = {"A+", "A0", "B+", "B0", "C+", "C0", "D+", "D0", "F", "P"};
-        double gradeScore[] = {4.5, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0.0, 0.0};
-
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+        double totalScore = 0;
+        double totalCredit = 0;
+        
         for (int i = 0; i < 20; i++) {
-            str[i] = bfr.readLine();
-            StringTokenizer st = new StringTokenizer(str[i], " ");
-            String subject = st.nextToken();
-            double score = Double.parseDouble(st.nextToken());
+            st = new StringTokenizer(br.readLine());
+            String major = st.nextToken();
+            double credit = Double.parseDouble(st.nextToken());
             String grade = st.nextToken();
-
-            for (int j = 0; j < 10; j++) {
-                if (grade.equals(gradeList[j])) {
-                    totalSum += score * gradeScore[j];
-                    if (j != 9) {
-                        scoreSum += score;
-                    }
-                }
+            
+            if (grade.equals("P")) continue;
+            
+            double gradePoint = 0;
+            switch (grade) {
+                case "A+": gradePoint = 4.5; break;
+                case "A0": gradePoint = 4.0; break;
+                case "B+": gradePoint = 3.5; break;
+                case "B0": gradePoint = 3.0; break; 
+                case "C+": gradePoint = 2.5; break;
+                case "C0": gradePoint = 2.0; break;
+                case "D+": gradePoint = 1.5; break;
+                case "D0": gradePoint = 1.0; break;
+                case "F": gradePoint = 0.0; break;    
             }
+            totalScore += credit * gradePoint;
+            totalCredit += credit;
         }
-
-        double average = totalSum / scoreSum;
-        System.out.printf("%.6f\n", average);
-
-        bfr.close();
+        double majorGPA = totalScore / totalCredit;
+        
+        System.out.print(majorGPA);
     }
 }
