@@ -1,11 +1,6 @@
 import java.io.*;
 class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String input;
-        
-        while ((input = br.readLine()) != null) {
-            System.out.println(input);
-        }
+        System.out.write(System.in.readAllBytes());
     }
 }
