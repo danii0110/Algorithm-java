@@ -1,36 +1,29 @@
 import java.io.*;
-import java.util.StringTokenizer;
-public class Main {
+import java.util.*;
+class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
-
-        //행렬의 크기 N, M 입력받기
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
-
-        int[][] A = new int[N][M];
-
-        for(int i = 0; i < N; i++) {
+        
+        int n = Integer.parseInt(st.nextToken());
+        int m = Integer.parseInt(st.nextToken());
+        int[][] arr = new int[n][m];
+        
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            for(int j = 0; j < M; j++) {
-                A[i][j] = Integer.parseInt(st.nextToken());
+            for (int j = 0; j < m; j++) {
+                arr[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        for(int i = 0; i < N; i++) {
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            for(int j = 0; j < M; j++) {
-                A[i][j] += Integer.parseInt(st.nextToken());
+            for (int j = 0; j < m; j++) {
+                arr[i][j] += Integer.parseInt(st.nextToken());
+                sb.append(arr[i][j]).append(" ");
             }
+            sb.append("\n");
         }
-        for(int i = 0; i < N; i++) {
-            for(int j = 0; j < M; j++) {
-                bw.write(String.valueOf(A[i][j]) + " ");
-            }
-            bw.write("\n");
-        }
-        bw.flush();
-        bw.close();
+        System.out.print(sb);
     }
 }
