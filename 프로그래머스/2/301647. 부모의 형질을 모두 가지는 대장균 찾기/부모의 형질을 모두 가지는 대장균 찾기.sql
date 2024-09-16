@@ -1,0 +1,11 @@
+SELECT ed.ID, ed.GENOTYPE, ed1.GENOTYPE AS PARENT_GENOTYPE
+FROM ECOLI_DATA ed
+JOIN ECOLI_DATA ed1
+ON ed.PARENT_ID = ed1.ID
+WHERE (ed.GENOTYPE & ed1.GENOTYPE) = ed1.GENOTYPE
+ORDER BY ed.ID ASC;
+
+# ECOLI_DATA에서
+# 부모의 형질을 모두 보유한 대장균의
+# ID, 형질, 부모 대장균의 형질 출력
+# ID ASC
