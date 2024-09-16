@@ -1,6 +1,7 @@
-# FISH_INFO 테이블에서
-# 잡은 물고기 중 길이가 10cm 이하인 물고기의 수를 출력
-# FISH_COUNT
-SELECT COUNT(ID) AS FISH_COUNT
+SELECT COUNT(*) AS FISH_COUNT
 FROM FISH_INFO
-WHERE LENGTH IS NULL;
+WHERE LENGTH <= 10 || LENGTH IS NULL;
+
+# FISH_INFO에서
+# 길이가 <= 10인
+# 물고기의 수 출력 -> FISH_COUNT
