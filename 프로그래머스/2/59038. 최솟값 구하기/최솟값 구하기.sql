@@ -1,5 +1,8 @@
-# ANIMAL_INS 테이블에서
-# 동물 보호소에 가장 먼저 들어온 동물은 언제 들어왔는지 조회
 SELECT DATETIME AS '시간'
 FROM ANIMAL_INS
-WHERE DATETIME = (SELECT MIN(DATETIME) FROM ANIMAL_INS);
+ORDER BY DATETIME ASC
+LIMIT 1;
+
+# ANIMAL_INS에서
+# 가장 먼저 들어온 동물이
+# 언제 들어왔는지 조회
