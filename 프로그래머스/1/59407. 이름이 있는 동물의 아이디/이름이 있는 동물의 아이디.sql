@@ -1,7 +1,9 @@
-# ANIMAL_INS 테이블에서
-# 이름이 있는 동물의 ID 조회
-# ID 오름차순
 SELECT ANIMAL_ID
 FROM ANIMAL_INS
 WHERE NAME IS NOT NULL
-ORDER BY ANIMAL_ID;
+ORDER BY ANIMAL_ID ASC;
+
+# ANIMAL_INS에서
+# 이름이 있는 동물의
+# ID 조회
+# ID ASC
