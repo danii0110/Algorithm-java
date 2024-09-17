@@ -1,7 +1,7 @@
-# ITEM_INFO 테이블에서
-# 희귀도가 'LEGEND'인 아이템들의
-# 가격의 총합
-# 칼럼명은 'TOTAL_PRICE'
-SELECT SUM(PRICE) AS 'TOTAL_PRICE'
+SELECT SUM(PRICE) AS TOTAL_PRICE
 FROM ITEM_INFO
 WHERE RARITY = 'LEGEND';
+
+# ITEM_INFO에서
+# 희귀도가 'LEGEND'인 아이템들의
+# 가격의 총합 출력 -> 'TOTAL_PRICE'
