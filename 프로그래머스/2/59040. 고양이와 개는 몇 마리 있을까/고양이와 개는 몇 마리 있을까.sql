@@ -1,0 +1,7 @@
+SELECT ANIMAL_TYPE, COUNT(ANIMAL_TYPE) AS count
+FROM ANIMAL_INS
+GROUP BY ANIMAL_TYPE
+ORDER BY FIELD(ANIMAL_TYPE, 'Cat', 'Dog');
+
+# 고양이, 개가 각각 몇 마리인지 조회
+# 고양이, 개 순서
