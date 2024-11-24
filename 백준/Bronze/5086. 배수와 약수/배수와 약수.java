@@ -1,19 +1,26 @@
-import java.util.*;
 import java.io.*;
-
-public class Main {
+import java.util.*;
+class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+        StringTokenizer st;
+        StringBuilder sb = new StringBuilder();
+        
         while(true) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
+            st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-
-            if (a == 0 && b == 0) break;
-            else if (b % a == 0) System.out.println("factor");
-            else if (a % b == 0) System.out.println("multiple");
-            else if (b % a != 0 && a % b != 0) System.out.println("neither");
+            
+            if (a == 0 && b == 0) {
+                break;
+            } else if (b % a == 0) {
+                sb.append("factor").append("\n");
+            } else if (a % b == 0) {
+                sb.append("multiple").append("\n");
+            } else {
+                sb.append("neither").append("\n");
+            }
         }
+        System.out.print(sb.toString());
     }
 }
