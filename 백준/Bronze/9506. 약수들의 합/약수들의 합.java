@@ -1,31 +1,40 @@
 import java.io.*;
 import java.util.*;
+
 class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        int n = 0;
         
-        while (n != -1) {
-            n = Integer.parseInt(br.readLine());
+        while (true) {
+            int n = Integer.parseInt(br.readLine());
             
             if (n == -1) break;
             
-            int measure = 0;
-            ArrayList<Integer> arr = new ArrayList<>();
+            ArrayList<Integer> divisors = new ArrayList<>();
+            int sum = 0;
             
-            for (int i = 1; i < n; i++) {
+            for (int i = 1; i * i <= n; i++) {
                 if (n % i == 0) {
-                    measure += i;
-                    arr.add(i);
+                    divisors.add(i);
+                    if (i != n / i) {
+                        divisors.add(n / i);
+                    }
                 }
             }
             
-            if (measure == n) {
+            Collections.sort(divisors);
+            divisors.remove(divisors.size() - 1);
+
+            for (int divisor : divisors) {
+                sum += divisor;
+            }
+            
+            if (sum == n) {
                 sb.append(n).append(" = ");
-                for (int i = 0; i < arr.size(); i++) {
-                    sb.append(arr.get(i));
-                    if (i != arr.size() - 1) {
+                for (int i = 0; i < divisors.size(); i++) {
+                    sb.append(divisors.get(i));
+                    if (i != divisors.size() - 1) {
                         sb.append(" + ");
                     }
                 }
@@ -34,6 +43,7 @@ class Main {
                 sb.append(n).append(" is NOT perfect.").append("\n");
             }
         }
+
         System.out.print(sb);
     }
 }
