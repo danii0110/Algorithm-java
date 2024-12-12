@@ -18,28 +18,16 @@ class Main {
                     stack.push(y);
                     break;
                 case 2:
-                    if (stack.empty()) {
-                        sb.append("-1").append("\n");
-                    } else {
-                        sb.append(stack.pop()).append("\n");
-                    }
+                    sb.append(stack.empty() ? "-1" : stack.pop()).append("\n");
                     break;
                 case 3:
                     sb.append(stack.size()).append("\n");
                     break;
                 case 4:
-                    if (stack.empty()) {
-                        sb.append("1").append("\n");
-                    } else {
-                        sb.append("0").append("\n");
-                    }
+                    sb.append(stack.empty() ? "1" : "0").append("\n");
                     break;
                 case 5:
-                    if (stack.empty()) {
-                        sb.append("-1").append("\n");
-                    } else {
-                        sb.append(stack.peek()).append("\n");
-                    }
+                    sb.append(stack.empty() ? "-1" : stack.peek()).append("\n");
                     break;
             }
         }
