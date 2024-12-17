@@ -7,26 +7,31 @@ class Main {
         
         while (true) {
             String st = br.readLine();
-            
             if (st.equals(".")) break;
             
-            StringBuilder filter = new StringBuilder();
-            
-            for (char s : st.toCharArray()) {
-                if (s == '(' || s == ')' || s == '[' || s == ']') {
-                    filter.append(s);
-                }
-            }
-            
-            while (filter.indexOf("()") != -1 || filter.indexOf("[]") != -1) {
-                filter = new StringBuilder(filter.toString()
-                                          .replace("()", "")
-                                          .replace("[]", ""));
-            }
-            
-            if (filter.length() == 0) sb.append("yes").append("\n");
+            if (isBalanced(st)) sb.append("yes").append("\n");
             else sb.append("no").append("\n");
         }
         System.out.print(sb);
+    }
+    static boolean isBalanced(String str) {
+        Stack<Character> stack = new Stack<>();
+        
+        for (char ch : str.toCharArray()) {
+            if (ch == '(' || ch == '[') {
+                stack.push(ch);
+            } else if (ch == ')') {
+                if (stack.isEmpty() || stack.peek() != '(') {
+                    return false;
+                }
+                stack.pop();
+            } else if (ch == ']') {
+                if (stack.isEmpty() || stack.peek() != '[') {
+                    return false;
+                }
+                stack.pop();
+            }
+        }
+        return stack.isEmpty();
     }
 }
