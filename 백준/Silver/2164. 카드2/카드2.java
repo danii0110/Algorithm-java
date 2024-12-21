@@ -3,18 +3,17 @@ import java.util.*;
 class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Queue<Integer> queue = new LinkedList<>();
+        Deque<Integer> deque = new ArrayDeque<>();
         
         int n = Integer.parseInt(br.readLine());
         
-        for (int i = 0; i < n; i++) {
-            queue.add(i + 1);
+        for (int i = 1; i <= n; i++) {
+            deque.add(i);
         }
-        
-        while(queue.size() > 1) {
-            queue.remove();
-            queue.offer(queue.poll());
+        while(deque.size() > 1) {
+            deque.pollFirst();
+            deque.offerLast(deque.pollFirst());
         }
-        System.out.print(queue.peek());
+        System.out.print(deque.peekFirst());
     }
 }
