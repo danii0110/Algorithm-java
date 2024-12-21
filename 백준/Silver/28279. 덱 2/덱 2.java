@@ -11,36 +11,32 @@ class Main {
         
         for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            String c = st.nextToken();
+            int com = Integer.parseInt(st.nextToken());
             
-            int temp;
-            
-            switch (c) {
-                case "1":
-                    temp = Integer.parseInt(st.nextToken());
-                    deque.addFirst(temp);
+            switch (com) {
+                case 1:
+                    deque.addFirst(Integer.parseInt(st.nextToken()));
                     break;
-                case "2":
-                    temp = Integer.parseInt(st.nextToken());
-                    deque.addLast(temp);
+                case 2:
+                    deque.addLast(Integer.parseInt(st.nextToken()));
                     break;
-                case "3":
-                    sb.append(!deque.isEmpty() ? deque.pollFirst() : -1).append("\n");
+                case 3:
+                    sb.append(deque.isEmpty() ? -1 : deque.pollFirst()).append("\n");
                     break;
-                case "4":
-                    sb.append(!deque.isEmpty() ? deque.pollLast() : -1).append("\n");
+                case 4:
+                    sb.append(deque.isEmpty() ? -1 : deque.pollLast()).append("\n");
                     break;
-                case "5":
+                case 5:
                     sb.append(deque.size()).append("\n");
                     break;
-                case "6":
+                case 6:
                     sb.append(deque.isEmpty() ? 1 : 0).append("\n");
                     break;
-                case "7":
-                    sb.append(!deque.isEmpty() ? deque.peekFirst() : -1).append("\n");
+                case 7:
+                    sb.append(deque.isEmpty() ? -1 : deque.peekFirst()).append("\n");
                     break;
-                case "8":
-                    sb.append(!deque.isEmpty() ? deque.peekLast() : -1).append("\n");
+                case 8:
+                    sb.append(deque.isEmpty() ? -1 : deque.peekLast()).append("\n");
                     break;
             }
         }
