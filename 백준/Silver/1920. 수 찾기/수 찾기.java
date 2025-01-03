@@ -9,23 +9,17 @@ class Main {
         int n = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
         HashSet<Integer> set = new HashSet<>();
-        for (int i = 0; i < n; i++) {
+        while(st.hasMoreTokens()) {
             set.add(Integer.parseInt(st.nextToken()));
         }
         
         int m = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
-        int[] comp = new int[m];
-        for (int i = 0; i < m; i++) {
-            comp[i] = Integer.parseInt(st.nextToken());
-        }
         
-        for (int i = 0; i < m; i++) {
-            if (set.contains(comp[i])) {
-                sb.append("1").append("\n");
-            } else {
-                sb.append("0").append("\n");
-            }
+        while(st.hasMoreTokens()) {
+            int num = Integer.parseInt(st.nextToken());
+            if (set.contains(num)) sb.append("1\n");
+            else sb.append("0\n");
         }
         
         System.out.print(sb);
