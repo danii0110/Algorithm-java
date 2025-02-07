@@ -1,34 +1,41 @@
 import java.io.*;
 import java.util.*;
+
 class Main {
+    static int n, m;
+    static boolean[] visited;
+    static int[] result;
+    static StringBuilder sb = new StringBuilder();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        StringBuilder sb = new StringBuilder();
-        
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
-        
-        int[] res = new int[m];
-        boolean[] visited = new boolean[n + 1];
-        
-        backtrack(n, m, 0, res, visited, sb);
-        
-        System.out.print(sb);
+
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+
+        visited = new boolean[n + 1];
+        result = new int[m];
+
+        dfs(0);
+
+        System.out.println(sb);
     }
-    static void backtrack(int n, int m, int depth, int[] res, boolean[] visited, StringBuilder sb) {
+
+    static void dfs(int depth) {
         if (depth == m) {
-            for (int i = 0; i < m; i++) {
-                sb.append(res[i]).append(" ");
+            for (int num : result) {
+                sb.append(num).append(" ");
             }
             sb.append("\n");
             return;
         }
+
         for (int i = 1; i <= n; i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                res[depth] = i;
-                backtrack(n, m, depth + 1, res, visited, sb);
+                result[depth] = i;
+                dfs(depth + 1);
                 visited[i] = false;
             }
         }
