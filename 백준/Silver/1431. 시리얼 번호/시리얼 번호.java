@@ -1,43 +1,39 @@
 import java.io.*;
 import java.util.*;
-
 class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int n = Integer.parseInt(br.readLine());
-        
         String[] serials = new String[n];
+        
         for (int i = 0; i < n; i++) {
             serials[i] = br.readLine();
         }
         
         Arrays.sort(serials, (a, b) -> {
             if (a.length() != b.length()) {
-                return a.length() - b.length(); // 길이가 짧은 것이 먼저
+                return a.length() - b.length();
             }
-            
             int sumA = sum(a);
             int sumB = sum(b);
             if (sumA != sumB) {
-                return sumA - sumB; // 숫자의 합이 작은 것이 먼저
+                return sumA - sumB;
             }
-            
-            return a.compareTo(b); // 사전순 정렬
+            return a.compareTo(b);
         });
-
-        for (String s : serials) {
+        
+        for(String s : serials) {
             sb.append(s).append("\n");
         }
+        
         System.out.print(sb);
     }
-
-    // 숫자 합을 계산하는 메서드
-    private static int sum(String str) {
+    static int sum(String str) {
         int sum = 0;
         for (char c : str.toCharArray()) {
             if (Character.isDigit(c)) {
-                sum += c - '0'; // 숫자로 변환하여 합산
+                sum += c - '0';
             }
         }
         return sum;
