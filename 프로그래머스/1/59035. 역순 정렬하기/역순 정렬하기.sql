@@ -1,7 +1,6 @@
 SELECT NAME, DATETIME
 FROM ANIMAL_INS
 ORDER BY ANIMAL_ID DESC;
-
 # ANIMAL_INS에서
-# 동물의 이름, 보호 시작일 조회
-# ANIMAL_ID DESC
+# 모든 동물의 이름과 보호 시작일을 조회
+# ANIMAL_ID 역순
