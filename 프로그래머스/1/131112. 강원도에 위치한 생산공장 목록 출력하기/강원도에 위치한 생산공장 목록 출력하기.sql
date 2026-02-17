@@ -1,9 +1,8 @@
 SELECT FACTORY_ID, FACTORY_NAME, ADDRESS
 FROM FOOD_FACTORY
-WHERE ADDRESS LIKE '강원도%'
-ORDER BY FACTORY_ID ASC;
-
+WHERE ADDRESS LIKE '%강원도%'
+ORDER BY FACTORY_ID;
 # FOOD_FACTORY에서
-# '강원도'에 위치한
-# 공장 ID, 공장 이름, 주소 조회
+# 강원도에 위치
+# 공장 ID, 공장 이름, 주소를 조회
 # 공장 ID ASC
